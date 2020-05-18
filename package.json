@@ -1,0 +1,18 @@
+{
+  "name": "script-cognito",
+  "version": "1.0.1",
+  "description": "Solução UI para o controle de dados do COVID-19 nos hospitais",
+  "main": "index.js",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "pass": "node src/password.js",
+    "create": "node src/createUser.js",
+    "list": "node src/listUsers.js"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.677.0",
+    "csv-parser": "^2.3.2",
+    "limiter": "^1.1.5"
+  }
+}
