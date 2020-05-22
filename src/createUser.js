@@ -34,8 +34,9 @@ fs.createReadStream('./resources/new_users.csv')
 async function run(user) {
   console.log(`Creating user for ${JSON.stringify(user)}`)
   // const nome = user['celulardousuário'];
-  const celular = '+' + user['celulardousuário'];
+  const celular = '+55' + user['celulardousuário'];
   const email = user['e-maildousuário'];
+  const cnes = user['#cnes'];
   if(email.indexOf('@') <= 0) {
     return;
   }
@@ -51,7 +52,7 @@ async function run(user) {
     ],
     // ForceAliasCreation: true || false,
     // MessageAction: RESEND | SUPPRESS,
-    Password: Env.TemporaryPassword,
+    TemporaryPassword: Env.TemporaryPassword,
     UserAttributes: [
       {
         Name: 'phone_number', /* required */
@@ -78,7 +79,9 @@ async function run(user) {
       console.log(err);
       // console.log(err, err.stack);
     } else {
-      console.log(`Success changing: ${JSON.stringify(data)}`);
+      // console.log(`Success creating: ${JSON.stringify(data)}`);
+      console.log(cnes);
+      console.log(data.User.Username);
     }
   });
 }
